@@ -1,17 +1,23 @@
 import React from 'react'
-import './Login.css'
+import './styles.css'
 
-export default function Login () {
-    // const [login, setLogin ] = useState({cpf: "", password: ""});
-
+export default function Login()
+{
     return (
-        <div className='formulario'>
+        <div className='login-wrapper'>
+            <h1>Plase Log In</h1>
             <form>
-                <label>CPF</label>
-                <input type="text" />
-                <label>Senha</label>
-                <input type="text" />
-                <input type="submit" />
+                <label>
+                    <p>CPF</p>
+                    <input type="text" />
+                </label>
+                <label>
+                    <p>Senha</p>
+                    <input type="password" />
+                </label>
+                <div>
+                    <button type="submit">Submit</button>
+                </div>
             </form>
         </div>
     )
