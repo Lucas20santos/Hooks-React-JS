@@ -1,0 +1,38 @@
+const styles = {
+    body:{
+        backgroundColor:'#0D698B',
+        height:'100vh',
+        width:'100%',
+        display:'flex',
+        flexDirection:'column',
+    },
+    titleArea: {
+        position:'relative',
+        display:'flex',
+        flexDirection:'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    title:{
+        color:'#FFFFFF',
+        marginLeft:16,
+        fontSize:30,
+    },
+    environments:{
+        height:'100%',
+        backgroundColor:'#F2F1E8',
+        display: 'flex',
+        flexDirection:'column',
+        alignItems: 'center',
+        paddingTop:30,
+    },
+    icon:{
+        fontSize:24,
+        position: 'absolute',
+        top:32,
+        right:16,
+        color:'#FFFFFF',
+    }
+}
+
+export default styles;

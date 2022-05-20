@@ -1,19 +1,33 @@
-import React from 'react'
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Login from '../components/Login/Login';
-import Dashboard from '../components/Dashboard';
-import Preferences from '../components/Preferences';
+import { Fragment } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+// import Home from '../pages/Home';
+import Signin  from "../pages/Signin";
+import Signup from "../pages/Signup";
 
-export default function Router()
-{
-    return(
-    <BrowserRouter>
-        <Routes>
-            <Route element = { Login } exact path="/" />
-            <Route element = { Dashboard } exact path="/dashboard" />
-            <Route element = { Preferences } exact path="/preferences" />
-        </Routes>
-    </BrowserRouter>
-    )
+import useAuth from "../hooks/useAuth";
+import Environments from "../pages/Environments";
+
+const Private = ({ Item }) => {
+
+    const { signed } = useAuth();
+
+    return signed > 0 ? <Item /> : <Signin />;
 }
+
+const RouterApp = () => {
+    return (
+        <BrowserRouter>
+            <Fragment>
+                <Routes>
+                    <Route path="/home" element={<Private Item={ Environments } />} />
+                    <Route path="/" element={<Signin />} />
+                    <Route path="/signup" element={<Signup />} />
+                    <Route path="*" element= {<Signin />} />
+                </Routes>
+            </Fragment>
+        </BrowserRouter>
+    );
+}
+
+export default RouterApp;
